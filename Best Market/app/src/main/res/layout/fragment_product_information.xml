@@ -1,0 +1,141 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.caocao.bestmarket.Product.ProductInformation">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@color/nameproduct"
+                android:textSize="24dp"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên sản phẫm"
+                android:gravity="center"
+                android:id="@+id/txtShowNameProduct"
+                />
+
+            <TextView
+
+                android:textSize="18dp"
+                android:layout_margin="8dp"
+                android:textColor="@color/secondaryTextColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Mô tả:"/>
+            <TextView
+
+                android:textSize="16dp"
+                android:layout_margin="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/primaryLightColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtShowDescription"
+                android:text="Mô tả:"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:textSize="18dp"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/secondaryTextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày tạo:         "
+
+                    />
+                <TextView
+
+                    android:textSize="16dp"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/primaryLightColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12/3/2018 "
+                    android:id="@+id/txtDateCreate"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:textSize="18dp"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/secondaryTextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giá:                   "
+
+                    />
+
+                <TextView
+
+                    android:textSize="16dp"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/secondaryColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1000VND"
+                    android:id="@+id/txtPrice"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:textSize="20dp"
+                android:layout_margin="8dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/secondaryTextColor"
+                    android:textSize="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại sản phẩm:  "/>
+                <TextView
+                    android:id="@+id/txtShowCategory"
+                    android:textSize="16dp"
+                    android:textColor="@color/primaryLightColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Điện điện tử"/>
+            </LinearLayout>
+            <TextView
+                android:textColor="@color/secondaryTextColor"
+                android:layout_margin="8dp"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ảnh mô tả:"/>
+            <ImageView
+
+                android:id="@+id/imageShowProduct"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@mipmap/imagecamera" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

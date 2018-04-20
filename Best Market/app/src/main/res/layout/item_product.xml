@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    >
+    <ImageView
+        android:padding="5dp"
+        android:src="@drawable/product"
+        android:id="@+id/imageItemProduct"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="@color/primaryColor"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Tên sản phẩm"
+            android:textSize="20dp"
+            android:id="@+id/txtItemName"/>
+        <TextView
+            android:textColor="@color/secondaryTextColor"
+
+            android:paddingLeft="5dp"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả: "
+            />
+        <TextView
+            android:textColor="@color/primaryDarkColor"
+            android:paddingLeft="10dp"
+            android:textSize="13dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Sản phẩm mới"
+            android:id="@+id/txtItemDescription"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/secondaryTextColor"
+
+                android:padding="5dp"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Giá: "
+            />
+            <TextView
+                android:textColor="@color/primaryLightColor"
+                android:padding="5dp"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1000VND"
+                android:id="@+id/txtPriceProduct"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

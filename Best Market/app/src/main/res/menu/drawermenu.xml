@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_trangchu" android:title="Trang chủ" android:icon="@mipmap/home"></item>
+    <item android:id="@+id/menu_dangbansanpham" android:title="Đăng bán sản phẩm"
+        android:icon="@mipmap/dangban"></item>
+    <item android:id="@+id/menu_danhsachsanpham" android:title="Danh sách sản phẩm đã bán" android:icon="@mipmap/listsale"></item>
+
+    <item android:id="@+id/menu_lichsuban" android:title="Thống kê" android:icon="@mipmap/thongke"></item>
+
+
+</menu>

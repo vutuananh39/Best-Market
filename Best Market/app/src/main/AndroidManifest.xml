@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+            <!-- <activity android:name=".PostProductActivity"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,10 +19,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".ProductActivity" />
+        <activity android:name=".Product.ProductActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <!--<activity android:name=".MainActivity" />-->
+        <activity android:name=".Product.PostProductActivity" />
+        <activity android:name=".Product.ViewListProductActivity" />
+        <activity android:name=".Product.ProductInformationActivity"></activity>
+        <activity android:name=".Product.HistorySaleProductActivity"></activity>
     </application>
 
 </manifest>

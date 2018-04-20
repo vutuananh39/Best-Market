@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Best Market.iml" filepath="$PROJECT_DIR$/Best Market.iml" />
-      <module fileurl="file://F:\androidProject\Best Market\Best Market.iml" filepath="F:\androidProject\Best Market\Best Market.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://F:\androidProject\Best Market\app\app.iml" filepath="F:\androidProject\Best Market\app\app.iml" />
     </modules>
   </component>
 </project>
