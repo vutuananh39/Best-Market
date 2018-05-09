@@ -10,115 +10,108 @@
 
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-                    <ImageView
-                        android:id="@+id/imgproduct"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+                        <ImageView
                             android:padding="10dp"
                             android:layout_marginTop="20dp"
-                            android:layout_gravity="center"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
+                            android:layout_gravity="top|left"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/xa2"
                             />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Thông tin sản phẩm"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                />
+                    </LinearLayout>
                     <TextView
-
                         android:id="@+id/thongtinsplistDGia"
-
-                        android:padding="10dp"
-                        android:layout_gravity="center"
-
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/primaryLightColor"/>
+                        android:textAlignment="center"
+                        android:paddingTop="10dp"
+                        android:layout_gravity="top|right"
+                        android:background="@color/primaryDarkColor"
+                        android:text="Thong tin san pham"
+                        android:layout_width="220dp"
+                        android:layout_height="200dp" />
+                </LinearLayout>
+            </LinearLayout>
             <LinearLayout
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:layout_width="match_parent"
+                android:paddingLeft="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
                     android:padding="10dp"
                     android:layout_width="130dp"
                     android:layout_height="40dp"
-                    android:text="Thời gian đấu giá"
-                    android:textStyle="bold"
+                    android:text="Thoi Gian Dau Gia"
                     />
                 <TextView
                     android:padding="10dp"
                     android:id="@+id/txtVtimeconlai"
-                    android:layout_width="match_parent"
+                    android:layout_width="130dp"
                     android:layout_height="40dp"
-
+                    android:text="Còn ..."
                     />
 
 
             </LinearLayout>
 
             <LinearLayout
-                android:paddingLeft="10dp"
-                android:layout_width="match_parent"
+                android:paddingLeft="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
                     android:padding="10dp"
                     android:layout_width="130dp"
                     android:layout_height="40dp"
-                    android:text="Số lượt tham gia"
-                    android:textStyle="bold"
+                    android:text="So Luot Tham Gia"
                     />
                 <TextView
                     android:padding="10dp"
                     android:id="@+id/txtluotthamgia"
-                    android:layout_width="match_parent"
+                    android:layout_width="130dp"
                     android:layout_height="40dp"
-
+                    android:text="137"
                     />
 
 
             </LinearLayout>
             <LinearLayout
-                android:paddingLeft="10dp"
-                android:layout_width="match_parent"
+                android:paddingLeft="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
                     android:padding="10dp"
                     android:layout_width="130dp"
                     android:layout_height="40dp"
-                    android:text="Giá tối thiểu"
-                    android:textStyle="bold"
+                    android:text="Gia Toi Thieu"
                     />
                 <TextView
                     android:padding="10dp"
                     android:id="@+id/txtGiasp"
-                    android:layout_width="match_parent"
+                    android:layout_width="130dp"
                     android:layout_height="40dp"
-
+                    android:text="1000000"
                     />
 
 
             </LinearLayout>
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:background="@color/primaryLightColor"
                 android:layout_gravity="center"
@@ -130,8 +123,9 @@
             <ListView
                 android:id="@+id/top5daugia"
                 android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="280dp" />
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:background="@color/secondaryLightColor" />
 
 
             <LinearLayout
@@ -143,12 +137,11 @@
                     android:layout_width="130dp"
                     android:layout_height="40dp"
                     android:text="Giá Của Bạn"
-                    android:textStyle="bold"
                     />
                 <TextView
                     android:padding="10dp"
                     android:id="@+id/txtMyPrice"
-                    android:layout_width="match_parent"
+                    android:layout_width="130dp"
                     android:layout_height="40dp"
                     android:text="0"
                     />
@@ -157,14 +150,13 @@
             </LinearLayout>
             <LinearLayout
                 android:paddingLeft="20dp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
                     android:padding="10dp"
                     android:layout_width="130dp"
                     android:layout_height="40dp"
                     android:text="Giá Mới"
-                    android:textStyle="bold"
                     />
                 <EditText
                     android:padding="10dp"
@@ -176,7 +168,6 @@
                     />
                 <Button
                     android:id="@+id/btnnhapgia"
-                    android:layout_gravity="right|bottom"
                     android:layout_marginLeft="10dp"
                     android:layout_width="50dp"
                     android:layout_height="40dp"

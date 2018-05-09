@@ -1,4 +1,4 @@
-package com.caocao.bestmarket.forgotPassord;
+package com.caocao.bestmarket.login;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -17,22 +17,20 @@ public class ForgotPassword_2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password_2);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
         // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
-
         // Enable the Up button
-        ab.setDisplayHomeAsUpEnabled(true);
+        if(ab!=null)
+            ab.setDisplayHomeAsUpEnabled(true);
 
 
-        Button button = (Button)findViewById(R.id.forgot_pass_button);
-
+        Button button = findViewById(R.id.back_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ForgotPassword_2Activity.this, ForgotPassword_3Activity.class);
+                Intent intent = new Intent(ForgotPassword_2Activity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,7 +1,5 @@
 package com.caocao.bestmarket;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,52 +9,36 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.caocao.bestmarket.Product.HistorySaleProduct;
+import com.bumptech.glide.Glide;
 import com.caocao.bestmarket.Product.HistorySaleProductActivity;
-import com.caocao.bestmarket.Product.PostProduct;
 import com.caocao.bestmarket.Product.PostProductActivity;
-import com.caocao.bestmarket.Product.ProductInformationActivity;
 import com.caocao.bestmarket.Product.ViewListProduct;
 import com.caocao.bestmarket.Product.ViewListProductActivity;
 import com.caocao.bestmarket.myAccount.EditInfoActivity;
-import com.caocao.bestmarket.notification.NotificationActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    //#############################################################################
-    //khai báo data
-    Database mdata=new Database();
-    //khai báo storage
-    Storage storageRef=new Storage();
 
-
-    //#############################################################################
-
-    public static boolean check=false;
+    private boolean check=false;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     NavigationView navigationView;
     BottomNavigationView bottomNav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //###############################################################################
-        //*********************************USER******************************
-        User user1 = new User("-LBfS1aK1jQ97ICxJ5Cn", "conheo", "heo123","Phan Văn Tam","01295806606","tam123@gmail.com","25/7 Lê Lợi");
-        User user2 = new User("-LBfS1aUCZPc4L4gJOvr", "conca", "ca123","Phan Văn Tài","01295806606","tai123@gmail.com","25/7 Lê Lai");
-       // mdata.addUser(user1);
-       // mdata.addUser(user2);
-        ProductNormal product1=new ProductNormal("-LAgo4QOSWxREUWAxEYL","Dell_7559",13,17000000,"dòng laptap gaming","laptop");
-        ProductNormal product2=new ProductNormal("-LAgo4QQto9tXY_-aVQG","Dell_7447",15,15000000,"dòng laptap gaming","laptop");
-        //mdata.addProduct(product1);
-       // mdata.addProduct(product2);
-        //mdata.addCartBuy(user1.Id,product1);
-       // mdata.addCartSell(user1.Id,product2);
-
-        // ******************************************************************
-        //###############################################################################
 
         addControl();
         addEvent();
@@ -66,15 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         //I added this if statement to keep the selected fragment when rotating the device
         if (savedInstanceState == null) {
-            if(check==false)
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ViewListProduct()).commit();
-            else{
-                check=false;
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new DauGiaFragment()).commit();
-            }
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new ViewListProduct()).commit();
         }
 
     }
@@ -94,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                     }
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
-
 
                     return true;
                 }
@@ -110,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //
+       setNavHeader(navigationView);
+        //
     }
     private  void addEvent(){
         setupDrawerContent(navigationView);
@@ -171,11 +149,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent4);
                 break;
 
-            case  R.id.nav_notification:
-                Intent intent5 = new Intent(MainActivity.this, NotificationActivity.class);
-                startActivity(intent5);
-                break;
-
         }
 
 
@@ -198,5 +171,62 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setNavHeader(NavigationView navigationView){
+        View hView =  navigationView.inflateHeaderView(R.layout.nav_header_main);
+        final ImageView backgroundImage = hView.findViewById(R.id.background_image_view);
+        final ImageView profileImage = hView.findViewById(R.id.profile_image_view);
+        final TextView nameField = hView.findViewById(R.id.name_text_view);
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user=null;
+        if(auth!=null)
+            user = auth.getCurrentUser();
+        if(user== null)
+            return;
+
+        DatabaseReference myUserdRef = FirebaseDatabase.getInstance().getReference().child("Accounts").child(user.getUid());
+        myUserdRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Object backgroundSnapshot = dataSnapshot.child("background_uri").getValue();
+                if(backgroundSnapshot!=null){
+                    String backgroundUri = backgroundSnapshot.toString();
+                    if(backgroundUri!=null && !backgroundUri.equals("")){
+                        Glide.with(backgroundImage.getContext())
+                                .load(backgroundUri)
+                                .into(backgroundImage);
+                    }
+                }
+
+                Object profileSnapshot = dataSnapshot.child("image_uri").getValue();
+                if(profileSnapshot!=null){
+                    String profileUri = profileSnapshot.toString();
+                    if(profileUri!=null && !profileUri.equals("")){
+                        Glide.with(profileImage.getContext())
+                                .load(profileUri)
+                                .into(profileImage);
+                    }
+                }
+
+                Object nameSnapshot = dataSnapshot.child("full_name").getValue();
+                if(nameSnapshot!=null){
+                    String name = nameSnapshot.toString();
+                    if(name!=null && !name.equals("")){
+                        nameField.setText(name);
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }

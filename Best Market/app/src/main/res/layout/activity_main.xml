@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                app:itemBackground="@color/secondaryColor"
+                app:itemBackground="@android:color/white"
                 app:itemIconTint="@drawable/nav_item_color_state"
                 app:itemTextColor="@drawable/nav_item_color_state"
                 app:menu="@menu/bottom_navigation_main"
@@ -46,11 +46,10 @@
     </android.support.constraint.ConstraintLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nView"
-        app:headerLayout="@layout/header"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/primaryTextColor"
-        app:itemTextColor="@color/primaryDarkColor"
+        android:background="@android:color/white"
+        app:itemTextColor="@color/primaryTextColor"
 
 
         app:menu="@menu/drawermenu"

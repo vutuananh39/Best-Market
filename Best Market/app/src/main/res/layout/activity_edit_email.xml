@@ -9,10 +9,13 @@
     android:layout_height="match_parent"
     tools:context="com.caocao.bestmarket.myAccount.EditEmailActivity">
     <EditText
+        android:textColor="@android:color/black"
+        android:id="@+id/email_edit_text"
         android:layout_width="match_parent"
         android:hint="@string/email"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/save_email_button"
         android:layout_marginTop="16dp"
         android:background="@color/primaryColor"
         android:layout_width="match_parent"

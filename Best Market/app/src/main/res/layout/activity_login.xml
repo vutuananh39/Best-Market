@@ -51,10 +51,11 @@
                     android:ems="10"
                     android:background="@android:color/transparent"
                     android:padding="12dp"
-                    android:drawablePadding="12dp"
-                    android:hint="Username"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/email"
+                    android:textColor="@android:color/white"
                     android:textColorHint="#fff"
-                    android:drawableLeft="@drawable/ic_person_white_24dp"/>
+                    android:drawableLeft="@drawable/ic_email_white_24dp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -69,10 +70,11 @@
                     android:id="@+id/password"
                     android:drawablePadding="16dp"
                     android:padding="16dp"
-                    android:hint="Password"
+                    android:hint="@string/password"
                     android:textColorHint="#fff"
                     android:background="@android:color/transparent"
                     android:maxLines="1"
+                    android:textColor="@android:color/white"
                     android:layout_marginTop="4dp"
                     android:drawableLeft="@drawable/ic_lock_white_24dp"/>
 
@@ -85,24 +87,22 @@
                     android:id="@+id/email_sign_in_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
                     android:background="@drawable/background_login"
-                    android:text="Log in"
-                    android:textAllCaps="false"
-                    android:textStyle="normal"
-                    style="@style/Base.TextAppearance.AppCompat.Body1"
-                    android:textSize="18sp"
-                    android:textColor="#f16f7d"
-                    android:padding="16dp"
                     android:clickable="true"
-                    android:layout_marginTop="24dp" />
+                    android:padding="16dp"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textColor="#f16f7d"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
 
                 <Button
                     android:id="@+id/register_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_signup"
-                    android:text="Sign up"
-                    style="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:text="@string/register"
                     android:textColor="#fff"
                     android:textAllCaps="false"
                     android:textSize="18sp"

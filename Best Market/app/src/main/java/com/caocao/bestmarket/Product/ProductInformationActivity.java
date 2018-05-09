@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +20,7 @@ public class ProductInformationActivity extends AppCompatActivity {
     TextView txtShowNameProduct,txtShowDescription,txtDateCreate,txtShowCategory,txtShowPrice;
     ImageView imageShowProduct;
     Product product;
-    Button btnviewFeedback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +33,7 @@ public class ProductInformationActivity extends AppCompatActivity {
             position = bundle.getInt("sanpham");
         }
         Log.e("Xin chao",position+"");
-//        Log.e("Xin chao",lvProductActi.getCount()+"");
+        Log.e("Xin chao",lvProductActi.getCount()+"");
 //        Toast.makeText(ProductInformationActivity.this, position,  Toast.LENGTH_LONG).show();
         product = (Product) lvProductActi.getItemAtPosition(position);
         addControl();
@@ -44,22 +41,7 @@ public class ProductInformationActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        btnviewFeedback=(Button) findViewById(R.id.btnviewfeedback);
-        final LinearLayout listcmt=(LinearLayout) findViewById(R.id.listcmt);
-        btnviewFeedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                if(listcmt.getVisibility()==View.GONE) {
-                    btnviewFeedback.setBackgroundColor(getResources().getColor(R.color.secondaryLightColor));
-                    listcmt.setVisibility(View.VISIBLE);
-                }
-                else{
-                    listcmt.setVisibility(View.GONE);
-                    btnviewFeedback.setBackgroundColor(getResources().getColor(R.color.primaryColor));
-                }
-            }
-        });
     }
 
     @Override

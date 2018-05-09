@@ -5,42 +5,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dangdgia"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
 
 
-    >
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
     <LinearLayout
-        android:paddingLeft="20dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageButton
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
 
                         android:id="@+id/btnaddIMG"
-                        android:padding="10dp"
+                        android:padding="5dp"
 
-                        android:layout_gravity="center"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp"
-                        android:background="@mipmap/ic_add_img1"
+                        android:layout_gravity="top|left"
+                        android:layout_width="140dp"
+                        android:layout_height="190dp"
+                        android:background="@mipmap/ic_add_img"
                         />
-
+                </LinearLayout>
                 <EditText
-                    android:id="@+id/edittxtMotasp"
-                    android:paddingTop="20dp"
-                    android:hint="Mô tả sản phẩm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-
+                    android:textAlignment="center"
+                    android:paddingTop="10dp"
+                    android:layout_gravity="top|right"
+                    android:background="@color/primaryDarkColor"
+                    android:hint="Nhập mô tả sẳn phẩm"
+                    android:layout_width="220dp"
+                    android:layout_height="200dp" />
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
-
+            android:paddingLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
@@ -48,9 +57,7 @@
                 android:id="@+id/txtVminprice"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
-                android:text="Giá tối thiểu"
-                android:textStyle="bold"
-                android:textSize="15dp"
+                android:text="Gia toi thieu"
                 />
             <EditText
 
@@ -59,10 +66,10 @@
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:background="@color/primaryDarkColor"
                 android:inputType="textPersonName"
                 android:hint="Nhập giá"
                 android:textStyle="italic"
-                android:textSize="15dp"
 
                 />
 
@@ -70,64 +77,47 @@
         </LinearLayout>
 
         <LinearLayout
-
-            android:layout_width="match_parent"
+            android:paddingLeft="20dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             >
             <TextView
-                android:paddingTop="10dp"
-                android:paddingLeft="5dp"
+                android:padding="10dp"
                 android:id="@+id/txttimeprice"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
-                android:text="Thời gian đấu giá:"
+                android:text="Thoi gian dau gia"
+                />
+            <EditText
+                android:id="@+id/txthour"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:text=":"
+                android:paddingLeft="2dp"
                 android:textStyle="bold"
-                android:textSize="15dp"
-                />
-            <TextView
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:id="@+id/txttime"
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:text="9:00"/>
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/txtdate"
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:text="12/12/2019"/>
-            <ImageButton
-                android:id="@+id/btnedittime"
-                android:layout_width="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic_edit"
-                />
+                android:textSize="19dp"/>
+            <EditText
+                android:id="@+id/txtmin"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
         </LinearLayout>
-
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:paddingLeft="20dp"
             >
             <TextView
             android:padding="10dp"
             android:id="@+id/txtthongbao"
             android:layout_width="130dp"
             android:layout_height="40dp"
-            android:text="Nhận thông báo"
-                android:textStyle="bold"
-                android:textSize="15dp"
+            android:text="Nhan thong bao"
             />
-            <RadioGroup
-                android:paddingTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
             <RadioButton
                 android:layout_width="30dp"
                 android:layout_height="20dp" />
@@ -136,14 +126,12 @@
                 android:layout_height="wrap_content"
                 android:text="Có"/>
             <RadioButton
-                android:layout_marginLeft="10dp"
                 android:layout_width="30dp"
                 android:layout_height="20dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Không"/>
-            </RadioGroup>
 
         </LinearLayout>
         <Button
@@ -153,5 +141,5 @@
             android:text="Đấu giá"
             android:layout_gravity="center"/>
     </LinearLayout>
-    </ScrollView>
+
 </android.support.v4.widget.DrawerLayout>

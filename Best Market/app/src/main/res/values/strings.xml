@@ -14,6 +14,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="please_check_mail">Vui lòng kiểm tra email và đăng nhập lại</string>
+    <string name="loading">Đang tải…</string>
     <string name="change_password">Thiết lập mật khẩu</string>
     <string name="not_establish">(Chưa thiết lập)</string>
     <string name="require_password">Vui lòng nhập mật khẩu mới:</string>
@@ -48,6 +50,13 @@
     <string name="help_phone">"SĐT: 0123456789</string>
     <string name="help_mail">"Email: bestmarket@gmail.com"</string>
     <string name="forgot_password">"Quên mật khẩu"</string>
+    <string name="sex">"Giới tính"</string>
+    <string-array name="sex_picker_array">
+        <item name="Male">Nam</item>
+        <item name="Female">Nữ</item>
+        <item name="Unknown">Không xác định</item>
+    </string-array>
+    <string name="logout"> Đăng xuất</string>
 
     <string name="title_activity_sign_in">SignInActivity</string>
     <string name="dummy_button">Dummy Button</string>
@@ -73,5 +82,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
 
 </resources>

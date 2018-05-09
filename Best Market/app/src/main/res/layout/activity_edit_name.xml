@@ -9,10 +9,13 @@
     android:layout_height="match_parent"
     tools:context="com.caocao.bestmarket.myAccount.EditNameActivity">
     <EditText
+        android:id="@+id/full_name_edit_text"
+        android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:hint="@string/full_name"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/save_name_button"
         android:layout_marginTop="16dp"
         android:background="@color/primaryColor"
         android:layout_width="match_parent"
