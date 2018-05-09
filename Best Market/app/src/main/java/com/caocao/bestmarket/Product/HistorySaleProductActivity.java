@@ -1,7 +1,8 @@
 package com.caocao.bestmarket.Product;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.caocao.bestmarket.R;
@@ -17,7 +18,22 @@ public class HistorySaleProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_sale_product);
         addControl();
         addEvent();
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id =item.getItemId();
+        if(id==android.R.id.home) this.finish();
+/*     if(mTonggle.onOptionsItemSelected(item)){
+         return true;
+     }
+  */
+        return super.onOptionsItemSelected(item);
+    }
+
 
     public void addControl(){
         txtAmountDientu = findViewById(R.id.txtAmountDientu);

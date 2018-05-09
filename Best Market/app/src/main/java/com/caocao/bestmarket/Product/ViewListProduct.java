@@ -61,7 +61,7 @@ public class ViewListProduct extends Fragment {
      * @return A new instance of fragment ViewListProduct.
      */
     // TODO: Rename and change types and number of parameters
-    public static ViewListProduct newInstance(String param1, String param2,String param3) {
+    public static ViewListProduct newInstance(String param1, String param2, String param3) {
         ViewListProduct fragment = new ViewListProduct();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -119,28 +119,28 @@ public class ViewListProduct extends Fragment {
         Drawable myDrawable = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.xemay, null);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         arrayProduct.add(new Product("Xe máy","Xe đã dùng 2 năm",currentTime,1000,"Xe", myLogo));
-        adapterProduct = new ArrayAdapterProduct(getContext(),R.layout.item_product,arrayProduct);
+        adapterProduct = new ArrayAdapterProduct(getContext(), R.layout.item_product,arrayProduct);
 
         //San pham thu 2
         myDrawable = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.maytinh, null);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         arrayProduct.add(new Product("Máy tính để bàn","Máy tính đễ bàn hãng acer, đã dùng được 2 năm, hiện đang còn rất tốt",currentTime,1000,"Điện tử", myLogo));
-        adapterProduct = new ArrayAdapterProduct(getContext(),R.layout.item_product,arrayProduct);
+        adapterProduct = new ArrayAdapterProduct(getContext(), R.layout.item_product,arrayProduct);
 
         myDrawable = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.sonmoi, null);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         arrayProduct.add(new Product("Son môi","Son môi nhập ngoại, hàng chính hãng, giúp môi giữ ẫm, màu hồng tươi sáng",currentTime,1000,"Quần áo", myLogo));
-        adapterProduct = new ArrayAdapterProduct(getContext(),R.layout.item_product,arrayProduct);
+        adapterProduct = new ArrayAdapterProduct(getContext(), R.layout.item_product,arrayProduct);
 
         myDrawable = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.vaydep, null);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         arrayProduct.add(new Product("Váy dạ hội","Hàng mẫu mã mới, phù hợp cho các chị em",currentTime,1000,"Quần áo", myLogo));
-        adapterProduct = new ArrayAdapterProduct(getContext(),R.layout.item_product,arrayProduct);
+        adapterProduct = new ArrayAdapterProduct(getContext(), R.layout.item_product,arrayProduct);
 
         myDrawable = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.iphone6, null);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         arrayProduct.add(new Product("Điện thoại iphone","Điện thoại mới mua, do cần tiền nên mình bán lại giá giảm 20% so với giá gốc",currentTime,1000,"Điện thoại", myLogo));
-        adapterProduct = new ArrayAdapterProduct(getContext(),R.layout.item_product,arrayProduct);
+        adapterProduct = new ArrayAdapterProduct(getContext(), R.layout.item_product,arrayProduct);
 
         lvProduct.setAdapter(adapterProduct);
     }

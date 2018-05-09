@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/infonguoidaugia"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+<TextView
+    android:layout_width="200dp"
+    android:layout_height="35dp"
+    android:paddingTop="5dp"
+    android:id="@+id/txtnamenguoidaugia"
+    />
+    <TextView
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:id="@+id/txtgianguoidaugia"
+        />
+</LinearLayout>

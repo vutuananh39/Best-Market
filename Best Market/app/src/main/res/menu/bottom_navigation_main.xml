@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/action_add"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Hơme"
+        app:showAsAction="ifRoom"
+
+        />
+    <item
+        android:id="@+id/action_edit"
+        android:enabled="true"
+        android:icon="@drawable/ic_daugia1"
+        android:title="Đấu giá"
+        app:showAsAction="ifRoom"
+
+        />
+
+</menu>

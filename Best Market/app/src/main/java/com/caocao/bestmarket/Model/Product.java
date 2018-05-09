@@ -1,7 +1,6 @@
 package com.caocao.bestmarket.Model;
 
 import android.graphics.Bitmap;
-import android.media.Image;
 
 import java.util.Date;
 

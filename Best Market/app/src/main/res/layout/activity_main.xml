@@ -11,47 +11,36 @@
         android:layout_height="match_parent"
         >
 
-    <FrameLayout
-        android:id="@+id/fragmentMain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
-        ></FrameLayout>
+        <FrameLayout
+            android:id="@+id/fragmentMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            ></FrameLayout>
 
 
 
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="0dp"
-            android:background="@color/colorBar"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-            <ImageButton
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:src="@mipmap/home" />
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/bottom_navigationview"/>
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/bottom_navigationview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:itemBackground="@color/secondaryColor"
+                app:itemIconTint="@drawable/nav_item_color_state"
+                app:itemTextColor="@drawable/nav_item_color_state"
+                app:menu="@menu/bottom_navigation_main"
+                >
 
-            <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/icon_notify" />
-
-            <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/cart" />
-
-            <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/account" />
-
-        </LinearLayout>
+            </android.support.design.widget.BottomNavigationView>
+        </RelativeLayout>
 
 
     </android.support.constraint.ConstraintLayout>
