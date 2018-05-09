@@ -7,9 +7,11 @@
     android:orientation="vertical"
     tools:context="com.caocao.bestmarket.Product.ProductInformationActivity">
     <ScrollView
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:paddingBottom="20dp"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,6 +135,166 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:src="@mipmap/imagecamera" />
+
+            <Button
+                android:id="@+id/btnviewfeedback"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:paddingTop="10dp"
+                android:textSize="20dp"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:text="THÔNG TIN PHẢN HỒI"
+                android:background="@color/primaryLightColor"/>
+
+            <LinearLayout
+                    android:id="@+id/listcmt"
+                    android:visibility="gone"
+                    android:layout_width="380dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:paddingTop="5dp"
+                        android:paddingLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:textColor="@color/secondaryColor"
+                        android:textStyle="italic"
+                        android:text="Co 1 phan hoi moi"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:padding="10dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/avaph"/>
+                        <TextView
+                            android:textColor="@color/primaryTextColor"
+                            android:padding="12dp"
+                            android:textStyle="bold"
+                            android:layout_width="315dp"
+                            android:layout_height="50dp"
+                            android:text="Lee Ho:"/>
+                    </LinearLayout>
+                    <TextView
+                        android:textColor="@color/primaryTextColor"
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="350dp"
+                        android:background="@color/secondaryLightColor"
+                        android:padding="5dp"
+                        android:layout_height="40dp"
+                        android:text="San pham rat tot."/>
+                    <LinearLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="350dp"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:text="Tra loi:"
+                            android:textStyle="italic"/>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:text="5 phut truoc"
+                            android:textStyle="italic"/>
+                    </LinearLayout>
+
+                    //coment 2
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:padding="10dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/avaph2"/>
+                        <TextView
+
+                            android:textColor="@color/primaryTextColor"
+                            android:padding="12dp"
+                            android:textStyle="bold"
+                            android:layout_width="315dp"
+                            android:layout_height="50dp"
+                            android:text="An Nhi"/>
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="350dp"
+                        android:padding="5dp"
+                        android:layout_height="40dp"
+                        android:background="@color/secondaryLightColor"
+                        android:text="Con hang khong ad"/>
+                    <LinearLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="350dp"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:text="Tra loi:"
+                            android:textStyle="italic"/>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:text="3 gio truoc"
+                            android:textStyle="italic"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="60dp"
+
+                        >
+                        <TextView
+
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="290dp"
+                            android:padding="5dp"
+                            android:layout_height="30dp"
+                            android:textStyle="italic"
+                            android:text="Duoc tra loi boi quan tri vien:"/>
+                        <TextView
+
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="290dp"
+                            android:padding="5dp"
+                            android:layout_height="40dp"
+                            android:text="Hien tai san pham nay da het hang nha ban"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:layout_width="240dp"
+                            android:layout_height="50dp"
+                            android:hint="Nhap tra loi:..."
+                            android:textSize="12dp"
+                            android:textStyle="italic"
+                            android:layout_marginLeft="60dp"/>
+                        <Button
+                            android:layout_width="60dp"
+                            android:layout_height="40dp"
+                            android:text="OK"/>
+                    </LinearLayout>
+                </LinearLayout>
 
 
 

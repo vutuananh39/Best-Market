@@ -1,5 +1,7 @@
 package com.caocao.bestmarket;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -12,10 +14,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.caocao.bestmarket.Product.HistorySaleProduct;
 import com.caocao.bestmarket.Product.HistorySaleProductActivity;
+import com.caocao.bestmarket.Product.PostProduct;
 import com.caocao.bestmarket.Product.PostProductActivity;
+import com.caocao.bestmarket.Product.ProductInformationActivity;
 import com.caocao.bestmarket.Product.ViewListProduct;
 import com.caocao.bestmarket.Product.ViewListProductActivity;
 import com.caocao.bestmarket.myAccount.EditInfoActivity;
@@ -28,17 +34,39 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
+    //#############################################################################
+    //khai báo data
+    Database mdata=new Database();
+    //khai báo storage
+    Storage storageRef=new Storage();
 
-    private boolean check=false;
+
+    //#############################################################################
+
+    public static boolean check=false;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     NavigationView navigationView;
     BottomNavigationView bottomNav;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //###############################################################################
+        //*********************************USER******************************
+        User user1 = new User("-LBfS1aK1jQ97ICxJ5Cn", "conheo", "heo123","Phan Văn Tam","01295806606","tam123@gmail.com","25/7 Lê Lợi");
+        User user2 = new User("-LBfS1aUCZPc4L4gJOvr", "conca", "ca123","Phan Văn Tài","01295806606","tai123@gmail.com","25/7 Lê Lai");
+       // mdata.addUser(user1);
+       // mdata.addUser(user2);
+        ProductNormal product1=new ProductNormal("-LAgo4QOSWxREUWAxEYL","Dell_7559",13,17000000,"dòng laptap gaming","laptop");
+        ProductNormal product2=new ProductNormal("-LAgo4QQto9tXY_-aVQG","Dell_7447",15,15000000,"dòng laptap gaming","laptop");
+        //mdata.addProduct(product1);
+       // mdata.addProduct(product2);
+        //mdata.addCartBuy(user1.Id,product1);
+       // mdata.addCartSell(user1.Id,product2);
+
+        // ******************************************************************
+        //###############################################################################
 
         addControl();
         addEvent();
@@ -48,9 +76,18 @@ public class MainActivity extends AppCompatActivity {
 
         //I added this if statement to keep the selected fragment when rotating the device
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new ViewListProduct()).commit();
+            if(check==false)
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ViewListProduct()).commit();
+            else{
+                check=false;
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new DauGiaFragment()).commit();
+            }
+
         }
+
+        setNavHeader(navigationView);
 
     }
 
@@ -69,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                     }
-
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
+
 
                     return true;
                 }
@@ -85,9 +122,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //
-       setNavHeader(navigationView);
-        //
     }
     private  void addEvent(){
         setupDrawerContent(navigationView);
@@ -149,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent4);
                 break;
 
+
         }
 
 
@@ -186,39 +221,37 @@ public class MainActivity extends AppCompatActivity {
         if(user== null)
             return;
 
-        DatabaseReference myUserdRef = FirebaseDatabase.getInstance().getReference().child("Accounts").child(user.getUid());
+        DatabaseReference myUserdRef = FirebaseDatabase.getInstance().getReference().child("User").child(user.getUid());
         myUserdRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Object nameDataSnapshot = dataSnapshot.child("full_name").getValue();
+                if(nameDataSnapshot !=null) {
+                    String name = nameDataSnapshot.toString();
+                    if (name != null&&!name.equals(""))
+                        nameField.setText(name);
+                }
 
                 Object backgroundSnapshot = dataSnapshot.child("background_uri").getValue();
                 if(backgroundSnapshot!=null){
                     String backgroundUri = backgroundSnapshot.toString();
-                    if(backgroundUri!=null && !backgroundUri.equals("")){
+                    if(backgroundUri!=null && !backgroundUri.isEmpty()){
                         Glide.with(backgroundImage.getContext())
                                 .load(backgroundUri)
                                 .into(backgroundImage);
                     }
                 }
 
-                Object profileSnapshot = dataSnapshot.child("image_uri").getValue();
-                if(profileSnapshot!=null){
-                    String profileUri = profileSnapshot.toString();
-                    if(profileUri!=null && !profileUri.equals("")){
+                Object imageSnapshot = dataSnapshot.child("image_uri").getValue();
+                if(imageSnapshot!=null){
+                    String imageUri = imageSnapshot.toString();
+                    if(imageUri!=null && !imageUri.isEmpty()){
                         Glide.with(profileImage.getContext())
-                                .load(profileUri)
+                                .load(imageUri)
                                 .into(profileImage);
                     }
-                }
 
-                Object nameSnapshot = dataSnapshot.child("full_name").getValue();
-                if(nameSnapshot!=null){
-                    String name = nameSnapshot.toString();
-                    if(name!=null && !name.equals("")){
-                        nameField.setText(name);
-                    }
                 }
-
 
             }
 
@@ -227,6 +260,50 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+//        DatabaseReference myUserdRef = FirebaseDatabase.getInstance().getReference().child("Accounts").child(user.getUid());
+//        myUserdRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                Object backgroundSnapshot = dataSnapshot.child("background_uri").getValue();
+//                if(backgroundSnapshot!=null){
+//                    Toast.makeText(getApplicationContext(), "Tuân anh", Toast.LENGTH_SHORT).show();
+//
+//                    String backgroundUri = backgroundSnapshot.toString();
+//                    if(backgroundUri!=null && !backgroundUri.equals("")){
+//                        Glide.with(backgroundImage.getContext())
+//                                .load(backgroundUri)
+//                                .into(backgroundImage);
+//                    }
+//                }
+//
+//                Object profileSnapshot = dataSnapshot.child("image_uri").getValue();
+//                if(profileSnapshot!=null){
+//                    String profileUri = profileSnapshot.toString();
+//                    if(profileUri!=null && !profileUri.equals("")){
+//                        Glide.with(profileImage.getContext())
+//                                .load(profileUri)
+//                                .into(profileImage);
+//                    }
+//                }
+//
+//                Object nameSnapshot = dataSnapshot.child("full_name").getValue();
+//                if(nameSnapshot!=null){
+//                    String name = nameSnapshot.toString();
+//                    if(name!=null && !name.equals("")){
+//                        nameField.setText(name);
+//                    }
+//                }
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
     }
 }

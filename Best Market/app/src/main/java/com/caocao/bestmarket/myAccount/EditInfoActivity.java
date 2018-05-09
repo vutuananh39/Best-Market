@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.caocao.bestmarket.BaseActivity;
@@ -59,8 +58,8 @@ public class EditInfoActivity extends BaseActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_info);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
        // findViewById(R.id.user_name).setOnClickListener(this);
         findViewById(R.id.password).setOnClickListener(this);
@@ -92,18 +91,18 @@ public class EditInfoActivity extends BaseActivity implements View.OnClickListen
        setupData();
 
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id =item.getItemId();
-        if(id==android.R.id.home) this.finish();
-/*     if(mTonggle.onOptionsItemSelected(item)){
-         return true;
-     }
-  */
-        return super.onOptionsItemSelected(item);
-
-    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id =item.getItemId();
+//        if(id==android.R.id.home) this.finish();
+///*     if(mTonggle.onOptionsItemSelected(item)){
+//         return true;
+//     }
+//  */
+//        return super.onOptionsItemSelected(item);
+//
+//    }
     @Override
     protected Dialog onCreateDialog(int id) {
         if (id == CALENDAR_PICKER) {

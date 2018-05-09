@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /**
@@ -32,7 +33,7 @@ public class ListProductDauGia extends AppCompatActivity {
 */
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+/*
         txtvInfo = (TextView) findViewById(R.id.txtInfo);
         txtvInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,15 +43,11 @@ public class ListProductDauGia extends AppCompatActivity {
             }
         });
         Bundle bundle=getIntent().getExtras();
+*/
     }
-    /*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(mTonggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
+
+
+
     public boolean onOptionsItemSelected(MenuItem item) {
         int id =item.getItemId();
         if(id==android.R.id.home) this.finish();

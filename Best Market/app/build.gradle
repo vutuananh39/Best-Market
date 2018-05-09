@@ -38,5 +38,9 @@ dependencies {
 
     // Displaying images
     compile 'com.github.bumptech.glide:glide:3.6.1'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'//thư viện picaso
+    implementation 'com.braintreepayments.api:braintree:2.0.0'
+
 }
 apply plugin: 'com.google.gms.google-services'

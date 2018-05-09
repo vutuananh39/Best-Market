@@ -53,6 +53,7 @@
         <activity
             android:name=".myAccount.EditInfoActivity"
             android:label="@string/my_account"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".MainActivity"
